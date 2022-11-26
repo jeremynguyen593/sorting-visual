@@ -2,11 +2,28 @@
   text-align: center;
 }
 
+/* T R B L*/
+/* TB RL */
 .frame {
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.container {
+  margin: 5em 0 5em 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+}
+
+.card {
+  border-radius: 2em;
+  padding: 0 1em;
+  background-color: #818181;
 }
 
 

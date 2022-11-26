@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import './Bar.css';
 
 function Bar({index, length, color}) {
@@ -21,22 +21,22 @@ function Bar({index, length, color}) {
         width: length,
         left: -Math.floor(length / 2) + 10,
         border: 'none',
-    }
+    };
 
-    const front_bottom = {
+    const bottom = {
         transform: `translateY(${200 - length}px) rotateX(-90deg)`,
         backgroundColor: `${colors[color][0]}`,
         boxShadow: `5px 5px 50px 5px ${colors[color][1]}`,
         transition: '0.3s',
-    }
+    };
 
-    const left_right = {
+    const front_back_left_right = {
         height: `${length}px`,
         transform: `translateY(${200 - length}px)`,
         backgroundColor: `${colors[color][0]}`,
         boxShadow: `5px 5px 50px 5px ${colors[color][1]}`,
         transition: '0.3s',
-    }
+    };
 
     const handleChange = (e) => {
         let val = e.target.value;
@@ -52,21 +52,21 @@ function Bar({index, length, color}) {
         }
 
         setLen(parseInt(e.target.value))
-    }
+    };
 
     return (
         <>
             <div className = 'bar' style = {barStyle}>
-                <div className = "side top"></div>
-                <div className = "side bottom" style = {front_bottom}></div>
-                <div className = "side right">
-                    <div className = "color-bar right-color-bar" style = {left_right}></div>
+                <div className = 'side top'></div>
+                <div className = 'side bottom' style = {bottom}></div>
+                <div className = 'side right'>
+                    <div className = 'color-bar right-color-bar' style = {front_back_left_right}></div>
                 </div>
-                <div className = "side left">
-                    <div className = "color-bar left-color-bar" style = {left_right}></div>
+                <div className = 'side left'>
+                    <div className = 'color-bar left-color-bar' style = {front_back_left_right}></div>
                 </div>
-                <div className = "side front">
-                <div className = "color-bar front-color-bar" style = {front_bottom}></div>
+                <div className = 'side front'>
+                <div className = 'color-bar front-color-bar' style = {front_back_left_right}></div>
                     <input 
                         type = 'number' 
                         length={length} 
@@ -76,11 +76,11 @@ function Bar({index, length, color}) {
                         onChange = {handleChange} 
                         />
                 </div>
-                <div className= "side back">
-                    <div className = "color-bar back-color-bar" style={front_bottom}></div>
+                <div className= 'side back'>
+                    <div className = 'color-bar back-color-bar' style={front_back_left_right}></div>
                 </div>
             </div>
         </>
-    )
+    );
 }
 export default Bar;
