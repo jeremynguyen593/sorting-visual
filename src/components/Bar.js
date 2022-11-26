@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './Bar.css';
 
-function Bar({index, length, color}) {
+function Bar({index, length, color/*, changeArray*/}) {
 
     const[len, setLen] = useState(length);
 
@@ -38,17 +38,20 @@ function Bar({index, length, color}) {
     const handleChange = (e) => {
         let val = e.target.value;
         if (val === '') {
-            setLen(0)
+            setLen(0);
+            //changeArray(index,0);
         } else {
             val = parseInt(val);
             if (val > 200) {
-                setLen(200)
+                setLen(200);
+               // changeArray(index,200);
             } else {
-                setLen(val)
+                setLen(val);
+               // changeArray(index,val);
             }
         }
 
-        setLen(parseInt(e.target.value))
+        setLen(parseInt(e.target.value));
     };
 
     return (
@@ -63,15 +66,17 @@ function Bar({index, length, color}) {
                     <div className = 'color-bar left-color-bar' style = {front_back_left_right}></div>
                 </div>
                 <div className = 'side front'>
-                <div className = 'color-bar front-color-bar' style = {front_back_left_right}></div>
-                    <input 
+                    <div className = 'color-bar front-color-bar' style = {front_back_left_right}>
+                   
+                   <input 
                         type = 'number' 
                         length={length} 
                         style = {inputStyle} 
                         value = {len} 
                         className = 'input'
                         onChange = {handleChange} 
-                        />
+                        /> 
+                    </div>
                 </div>
                 <div className= 'side back'>
                     <div className = 'color-bar back-color-bar' style={front_back_left_right}></div>

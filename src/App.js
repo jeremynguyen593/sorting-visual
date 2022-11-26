@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import Bar from './components/Bar';
 
-//CSS imports
 import './App.css';
 
 class App extends Component {
@@ -34,8 +33,20 @@ class App extends Component {
         this.setState({
             array: temp,
             arraySteps: [temp],
+            //currentStep: 0,
+        });
+    };
+
+    /* changeArray = (index, value) => {
+        let arr = this.state.array;
+        arr[index] = value;
+        this.setState({
+            array: arr,
+            arraySteps: [arr],
+            currentStep: 0,
         })
-    }
+    } */
+
     render() {
         let bars = this.state.array.map((value, index) => (
             <Bar 
@@ -43,15 +54,21 @@ class App extends Component {
                 index = {index} 
                 length = {value} 
                 color = {0}
+               // changeArray = {this.changeArray}
             />
             )
         );
+
         return (
             <div className = 'app'>
                 <div className = 'frame'>
                     <div className='barsDiv container card'>{bars}</div>
                 </div>
-                <div className = 'control-panel'></div>
+                <div className = 'control-panel'>
+                    <div className='control-buttons'>
+                        <button className='Play'>Play</button>
+                    </div>
+                </div>
                 <div className='panel'></div>
             </div>
         );
