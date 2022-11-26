@@ -11,16 +11,13 @@ function Bar({index, length, color}) {
         ['rgba(131, 232, 90, 0.5)', 'rgba(131, 232, 90, 0.2)'],
     ];
 
-    const barStyle = {
-        height: length,
-    };
-
     const inputStyle = {
         position: 'relative',
-        top: Math.floor(length / 2) - 10,
+        top: Math.floor(length / 2) - 12,
         width: length,
-        left: -Math.floor(length / 2) + 10,
+        left: -Math.floor(length / 2) + 13,
         border: 'none',
+        background: 'none',
     };
 
     const bottom = {
@@ -56,7 +53,7 @@ function Bar({index, length, color}) {
 
     return (
         <>
-            <div className = 'bar' style = {barStyle}>
+            <div className = 'bar'>
                 <div className = 'side top'></div>
                 <div className = 'side bottom' style = {bottom}></div>
                 <div className = 'side right'>
