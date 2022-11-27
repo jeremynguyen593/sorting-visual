@@ -26,4 +26,31 @@
   background-color: #818181;
 }
 
+.controller {
+  background: #555;
+  margin: 0 1em;
+  border: 1px solid;
+  height: 3em;
+  width: 3em;
+  border-radius: 100%;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.control-buttons {
+  height: 4em;
+  width: 15em;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.control-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

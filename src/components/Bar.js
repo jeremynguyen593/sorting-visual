@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import './Bar.css';
 
-function Bar({index, length, color/*, changeArray*/}) {
+function Bar({index, length, color, changeArray}) {
 
     const[len, setLen] = useState(length);
 
@@ -39,19 +39,19 @@ function Bar({index, length, color/*, changeArray*/}) {
         let val = e.target.value;
         if (val === '') {
             setLen(0);
-            //changeArray(index,0);
+            changeArray(index,0);
         } else {
             val = parseInt(val);
             if (val > 200) {
                 setLen(200);
-               // changeArray(index,200);
+                changeArray(index,200);
             } else {
                 setLen(val);
-               // changeArray(index,val);
+                changeArray(index,val);
             }
         }
 
-        setLen(parseInt(e.target.value));
+       // setLen(parseInt(e.target.value));
     };
 
     return (
