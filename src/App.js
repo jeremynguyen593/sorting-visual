@@ -14,7 +14,7 @@ class App extends Component {
         colorSteps: [],
         currentStep: 0,
         count: 10,
-        delay: 500,
+        delay: 100,
         algorithm: 'Bubble Sort',
         timeouts: [],
     };
@@ -128,6 +128,22 @@ class App extends Component {
             )
         );
 
+        let playButton;
+
+        if (this.state.arraySteps.length === this.state.currentStep) {
+            playButton = (
+                <button className='controller' onClick={this.generateRandomArray}>
+                    Reset
+                </button>
+            );
+        } else {
+            playButton = (
+                <button className='controller' onClick={this.start}>
+                    Play
+                </button>
+            );
+        }
+
         return (
             <div className = 'app'>
                 <div className = 'frame'>
@@ -135,7 +151,7 @@ class App extends Component {
                 </div>
                 <div className = 'control-panel'>
                     <div className='control-buttons'>
-                        <button className='Play' onClick={this.start}>Play</button>
+                       {playButton}
                     </div>
                 </div>
                 <div className='panel'></div>
