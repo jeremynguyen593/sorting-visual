@@ -1,9 +1,12 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import './Bar.css';
 
 function Bar({index, length, color, changeArray}) {
-
     const[len, setLen] = useState(length);
+
+    useEffect(() => {
+        setLen(length);
+    }, [length]);
 
     const colors = [
         ['rgba(61, 90, 241, 0.5)', 'rgba(61, 90, 241, 0.2)'],

@@ -40,6 +40,13 @@ class App extends Component {
         });
     };
 
+    clearTimeouts = () => {
+        this.state.timeouts.forEach((timeout) => clearTimeout(timeout));
+        this.setState({
+            timeouts: [],
+        });
+    }
+
     clearColorKey = () => {
         let blankKey = new Array(this.state.count).fill(0);
 
@@ -54,6 +61,7 @@ class App extends Component {
     }
 
     generateRandomArray = () => {
+        this.clearTimeouts();
         this.clearColorKey();
         const count = this.state.count;
         const temp = [];
@@ -82,13 +90,39 @@ class App extends Component {
         });
     };
 
+    start = () => {
+        let steps = this.state.arraySteps;
+        let colorSteps = this.state.colorSteps;
+
+        this.clearTimeouts();
+
+        let timeouts = [];
+        let i = 0;
+
+        while (i < steps.length - this.state.currentStep) {
+            let timeout = setTimeout(() => {
+                let currentStep = this.state.currentStep;
+                this.setState({
+                    array: steps[currentStep],
+                    colorKey: colorSteps[currentStep],
+                    currentStep: currentStep + 1,
+                });
+                timeouts.push(timeout);
+            }, this.state.delay * i);
+            i++;
+        }
+        this.setState({
+            timeouts: timeouts,
+        });
+    };
+
     render() {
         let bars = this.state.array.map((value, index) => (
             <Bar 
                 key={index} 
                 index = {index} 
                 length = {value} 
-                color = {0}
+                color = {this.state.colorKey[index]}
                 changeArray = {this.changeArray}
             />
             )
