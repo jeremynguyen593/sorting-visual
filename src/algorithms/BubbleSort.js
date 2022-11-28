@@ -1,6 +1,6 @@
 import {swap} from './helpers';
 
-const bubble = (array, position, arraySteps, colorSteps) => {
+const bs = (array, position, arraySteps, colorSteps) => {
 	let colorKey = colorSteps[colorSteps.length - 1].slice();
 
 	for (let i = 0; i < array.length - 1; i++) {
@@ -15,7 +15,6 @@ const bubble = (array, position, arraySteps, colorSteps) => {
             colorKey[j] = 0;
             colorKey[j + 1] = 0;
         }
-        colorKey[arraySteps.length - 1 - i] = 2;
         arraySteps.push(array.slice());
         colorSteps.push(colorKey.slice());
 	}
@@ -23,4 +22,4 @@ const bubble = (array, position, arraySteps, colorSteps) => {
     return;
 };
 
-export default bubble;
+export default bs;

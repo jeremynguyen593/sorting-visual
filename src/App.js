@@ -14,7 +14,7 @@ class App extends Component {
         colorSteps: [],
         currentStep: 0,
         count: 10,
-        delay: 100,
+        delay: 50,
         algorithm: 'Bubble Sort',
         timeouts: [],
     };
@@ -45,7 +45,7 @@ class App extends Component {
         this.setState({
             timeouts: [],
         });
-    }
+    };
 
     clearColorKey = () => {
         let blankKey = new Array(this.state.count).fill(0);
