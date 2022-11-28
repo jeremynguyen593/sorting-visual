@@ -4,6 +4,8 @@ import Bar from './components/Bar';
 
 import './App.css';
 
+import 'toolcool-range-slider';
+
 import BubbleSort from './algorithms/BubbleSort';
 
 class App extends Component {
@@ -115,6 +117,12 @@ class App extends Component {
             timeouts: timeouts,
         });
     };
+    changeSpeed = (e) => {
+		this.clearTimeouts();
+		this.setState({
+			delay: parseInt(e.target.value),
+		})
+	}
 
     render() {
         let bars = this.state.array.map((value, index) => (
@@ -152,6 +160,20 @@ class App extends Component {
                 <div className = 'control-panel'>
                     <div className='control-buttons'>
                        {playButton}
+                    </div>
+                    <div className='control-buttons'>
+                    <toolcool-range-slider
+                        slider-width="200px"
+                        slider-height="0.5rem"
+                        pointer-width="1.5rem"
+                        pointer-height="1.5rem"
+                        min = "50"
+                        max = "500"
+                        slider-bg="#6AD3BA"
+                        slider-bg-hover="#3F8A8A"
+                        pointer-border-hover="1px solid #79D6C0"
+                        pointer-border-focus="1px solid #79D6C0">
+                    </toolcool-range-slider>
                     </div>
                 </div>
                 <div className='panel'></div>
