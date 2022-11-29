@@ -4,9 +4,8 @@ import Bar from './components/Bar';
 
 import './App.css';
 
-import 'toolcool-range-slider';
-
 import BubbleSort from './algorithms/BubbleSort';
+
 
 class App extends Component {
     state = { 
@@ -16,7 +15,7 @@ class App extends Component {
         colorSteps: [],
         currentStep: 0,
         count: 10,
-        delay: 50,
+        delay: 225,
         algorithm: 'Bubble Sort',
         timeouts: [],
     };
@@ -117,12 +116,19 @@ class App extends Component {
             timeouts: timeouts,
         });
     };
-    changeSpeed = (e) => {
-		this.clearTimeouts();
-		this.setState({
-			delay: parseInt(e.target.value),
-		})
-	}
+
+    handleChange = (e) => {
+        this.setState({
+            value: e.target.value,
+            delay: parseInt(e.target.value),
+        })
+    }
+
+    getInitialState = () => {
+        return {
+            value: 500
+        }
+    }
 
     render() {
         let bars = this.state.array.map((value, index) => (
@@ -151,7 +157,6 @@ class App extends Component {
                 </button>
             );
         }
-
         return (
             <div className = 'app'>
                 <div className = 'frame'>
@@ -161,19 +166,8 @@ class App extends Component {
                     <div className='control-buttons'>
                        {playButton}
                     </div>
-                    <div className='control-buttons'>
-                    <toolcool-range-slider
-                        slider-width="200px"
-                        slider-height="0.5rem"
-                        pointer-width="1.5rem"
-                        pointer-height="1.5rem"
-                        min = "50"
-                        max = "500"
-                        slider-bg="#6AD3BA"
-                        slider-bg-hover="#3F8A8A"
-                        pointer-border-hover="1px solid #79D6C0"
-                        pointer-border-focus="1px solid #79D6C0">
-                    </toolcool-range-slider>
+                    <div className="slidecontainer">
+                        <input type="range" min="50" max="500" value= {this.state.value} onChange={this.handleChange}></input>
                     </div>
                 </div>
                 <div className='panel'></div>
