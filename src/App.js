@@ -140,7 +140,6 @@ class App extends Component {
 
     handleSize= (e) => {
         this.setState({
-            value: e.target.value,
             count: parseInt(e.target.value),
         })
         this.componentDidMount();
@@ -191,13 +190,13 @@ class App extends Component {
                     <div className='control-buttons'>
                        {playButton}
                     </div>
-                    <div className="slider1">
+                    <div className="slider">
                         <p>Speed</p>
                         <input type="range" id = "slider-1" min="50" max="1000" value= {this.delay} onChange={this.handleSpeed}></input>
                     </div>
-                    <div className="slider2">
+                    <div className="slider">
                         <p>Size</p>
-                        <input type="range" id = "slider-2" min="5" max="20" value= {this.state.value} onChange={this.handleSize}></input>
+                        <input type="range" id = "slider-2" min="5" max="20" value= {this.count} onChange={this.handleSize}></input>
                     </div>
                 </div>
                 <div className='panel'></div>

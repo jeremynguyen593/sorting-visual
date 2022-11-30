@@ -53,9 +53,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
-.slidecontainer {
-  width: 100%;
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
+.slider {
+  position: relative;
+  bottom: 8px;
+}
