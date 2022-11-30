@@ -53,8 +53,6 @@ function Bar({index, length, color, changeArray}) {
                 changeArray(index,val);
             }
         }
-
-       // setLen(parseInt(e.target.value));
     };
 
     return (
@@ -71,7 +69,7 @@ function Bar({index, length, color, changeArray}) {
                 <div className = 'side front'>
                     <div className = 'color-bar front-color-bar' style = {front_back_left_right}>
                    
-                   <input 
+                    <input 
                         type = 'number' 
                         length={length} 
                         style = {inputStyle} 

@@ -61,9 +61,18 @@ class App extends Component {
         return Math.floor(Math.random() * (max-min) + min);
     }
 
+    disableSlider = () => {
+        document.getElementById("slider-1").disabled = true;
+        document.getElementById("slider-2").disabled = true;
+    }
 
+    enableSlider = () => {
+        document.getElementById("slider-1").disabled = false;
+        document.getElementById("slider-2").disabled = false;
+    }
 
     generateRandomArray = () => {
+        this.enableSlider();
         this.clearTimeouts();
         this.clearColorKey();
         const count = this.state.count;
@@ -95,6 +104,8 @@ class App extends Component {
     };
 
     start = () => {
+        this.disableSlider();
+
         let steps = this.state.arraySteps;
         let colorSteps = this.state.colorSteps;
 
@@ -121,12 +132,20 @@ class App extends Component {
         });
     };
 
-    handleChange = (e) => {
+    handleSpeed = (e) => {
         this.setState({
-            value: e.target.value,
             delay: Math.abs(parseInt(e.target.value) - 950),
         })
     }
+
+    handleSize= (e) => {
+        this.setState({
+            value: e.target.value,
+            count: parseInt(e.target.value),
+        })
+        this.componentDidMount();
+    }
+
 
     getInitialState = () => {
         return {
@@ -162,6 +181,7 @@ class App extends Component {
                 </button>
             );
         }
+    
         return (
             <div className = 'app'>
                 <div className = 'frame'>
@@ -171,8 +191,13 @@ class App extends Component {
                     <div className='control-buttons'>
                        {playButton}
                     </div>
-                    <div className="slidecontainer">
-                        <input type="range" min="50" max="1000" value= {this.state.value} onChange={this.handleChange}></input>
+                    <div className="slider1">
+                        <p>Speed</p>
+                        <input type="range" id = "slider-1" min="50" max="1000" value= {this.delay} onChange={this.handleSpeed}></input>
+                    </div>
+                    <div className="slider2">
+                        <p>Size</p>
+                        <input type="range" id = "slider-2" min="5" max="20" value= {this.state.value} onChange={this.handleSize}></input>
                     </div>
                 </div>
                 <div className='panel'></div>
