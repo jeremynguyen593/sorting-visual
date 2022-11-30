@@ -61,6 +61,8 @@ class App extends Component {
         return Math.floor(Math.random() * (max-min) + min);
     }
 
+
+
     generateRandomArray = () => {
         this.clearTimeouts();
         this.clearColorKey();
@@ -74,6 +76,7 @@ class App extends Component {
             array: temp,
             arraySteps: [temp],
             currentStep: 0,
+            isButtonDisabled: false,
         }, () => {
             this.generateSteps();
         });
@@ -114,13 +117,14 @@ class App extends Component {
         }
         this.setState({
             timeouts: timeouts,
+            isButtonDisabled: true,
         });
     };
 
     handleChange = (e) => {
         this.setState({
             value: e.target.value,
-            delay: parseInt(e.target.value),
+            delay: Math.abs(parseInt(e.target.value) - 950),
         })
     }
 
@@ -143,6 +147,7 @@ class App extends Component {
         );
 
         let playButton;
+    
 
         if (this.state.arraySteps.length === this.state.currentStep) {
             playButton = (
@@ -152,7 +157,7 @@ class App extends Component {
             );
         } else {
             playButton = (
-                <button className='controller' onClick={this.start}>
+                <button className='controller' onClick={this.start} disabled={this.state.isButtonDisabled}>
                     Play
                 </button>
             );
@@ -167,7 +172,7 @@ class App extends Component {
                        {playButton}
                     </div>
                     <div className="slidecontainer">
-                        <input type="range" min="50" max="500" value= {this.state.value} onChange={this.handleChange}></input>
+                        <input type="range" min="50" max="1000" value= {this.state.value} onChange={this.handleChange}></input>
                     </div>
                 </div>
                 <div className='panel'></div>
