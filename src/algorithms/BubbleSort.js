@@ -22,4 +22,4 @@ const bs = (array, position, arraySteps, colorSteps) => {
     return;
 };
 
-export default bs;
+export default bs; 

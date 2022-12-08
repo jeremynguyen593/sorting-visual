@@ -5,6 +5,7 @@ import Bar from './components/Bar';
 import './App.css';
 
 import BubbleSort from './algorithms/BubbleSort';
+import MergeSort from './algorithms/MergeSort';
 
 
 class App extends Component {
@@ -16,18 +17,21 @@ class App extends Component {
         currentStep: 0,
         count: 10,
         delay: 225,
-        algorithm: 'Bubble Sort',
+        algorithm: 'Merge Sort',
         timeouts: [],
+        isDisabled: false,
     };
 
     algo = {
         'Bubble Sort': BubbleSort,
+        'Merge Sort': MergeSort,
     };
 
     componentDidMount() {
+
         this.generateRandomArray();
     }
-
+    
     generateSteps = () => {
         let array = this.state.array.slice();
         let steps = this.state.arraySteps.slice();
@@ -41,12 +45,14 @@ class App extends Component {
         });
     };
 
+    
     clearTimeouts = () => {
         this.state.timeouts.forEach((timeout) => clearTimeout(timeout));
         this.setState({
             timeouts: [],
         });
     };
+    
 
     clearColorKey = () => {
         let blankKey = new Array(this.state.count).fill(0);
@@ -85,7 +91,7 @@ class App extends Component {
             array: temp,
             arraySteps: [temp],
             currentStep: 0,
-            isButtonDisabled: false,
+            isDisabled: false,
         }, () => {
             this.generateSteps();
         });
@@ -103,7 +109,25 @@ class App extends Component {
         });
     };
 
-    start = () => {
+    changeAlgorithm = (e) => {
+		this.clearTimeouts();
+		this.clearColorKey();
+		this.setState(
+			{
+				algorithm: e.target.value,
+				currentStep: 0,
+				arraySteps: [
+					this.state.arraySteps[
+						this.state.currentStep === 0 ? 0 : this.state.currentStep - 1
+					],
+				],
+			},
+			() => this.generateSteps()
+		);
+	};
+
+
+    start = () =>{
         this.disableSlider();
 
         let steps = this.state.arraySteps;
@@ -124,13 +148,20 @@ class App extends Component {
                 });
                 timeouts.push(timeout);
             }, this.state.delay * i);
+            this.setState({
+                isRunning: true,
+            })
             i++;
+            
         }
+
         this.setState({
             timeouts: timeouts,
-            isButtonDisabled: true,
+            isDisabled: !this.isDisabled,
         });
-    };
+        
+    }
+
 
     handleSpeed = (e) => {
         this.setState({
@@ -165,7 +196,6 @@ class App extends Component {
         );
 
         let playButton;
-    
 
         if (this.state.arraySteps.length === this.state.currentStep) {
             playButton = (
@@ -175,7 +205,7 @@ class App extends Component {
             );
         } else {
             playButton = (
-                <button className='controller' onClick={this.start} disabled={this.state.isButtonDisabled}>
+                <button className='controller' onClick={this.start} disabled={this.state.isDisabled}>
                     Play
                 </button>
             );
@@ -198,6 +228,12 @@ class App extends Component {
                         <p>Size</p>
                         <input type="range" id = "slider-2" min="5" max="20" value= {this.count} onChange={this.handleSize}></input>
                     </div>
+                    <select>
+                        <option value="Bubble Sort" onChange={this.changeAlgorithm}>Bubble Sort</option>
+                        <option value="action-2">Another action</option>
+                        <option value="action-3">Something else</option>
+                    </select>
+                    
                 </div>
                 <div className='panel'></div>
             </div>
