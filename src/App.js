@@ -6,6 +6,7 @@ import './App.css';
 
 import BubbleSort from './algorithms/BubbleSort';
 import MergeSort from './algorithms/MergeSort';
+import InsertionSort from './algorithms/InsertionSort';
 
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
     algo = {
         'Bubble Sort': BubbleSort,
         'Merge Sort': MergeSort,
+        'Insertion Sort': InsertionSort,
     };
 
     componentDidMount() {
@@ -228,6 +230,7 @@ class App extends Component {
                     <select value = {this.state.algorithm} onChange = {this.changeAlgorithm}>
                         <option value="Bubble Sort">Bubble Sort</option>
                         <option value="Merge Sort">Merge Sort</option>
+                        <option value="Insertion Sort">Insertion Sort</option>
                     </select>
                     
                 </div>
