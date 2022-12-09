@@ -227,7 +227,7 @@ class App extends Component {
                         <p>Size</p>
                         <input type="range" id = "slider-2" min="5" max="20" value= {this.count} onChange={this.handleSize}></input>
                     </div>
-                    <select value = {this.state.algorithm} onChange = {this.changeAlgorithm}>
+                    <select value = {this.state.algorithm} onChange = {this.changeAlgorithm} disabled={this.state.isDisabled}>
                         <option value="Bubble Sort">Bubble Sort</option>
                         <option value="Merge Sort">Merge Sort</option>
                         <option value="Insertion Sort">Insertion Sort</option>
