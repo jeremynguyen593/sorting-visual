@@ -17,7 +17,7 @@ class App extends Component {
         currentStep: 0,
         count: 10,
         delay: 225,
-        algorithm: 'Merge Sort',
+        algorithm: 'Bubble Sort',
         timeouts: [],
         isDisabled: false,
     };
@@ -28,7 +28,6 @@ class App extends Component {
     };
 
     componentDidMount() {
-
         this.generateRandomArray();
     }
     
@@ -52,7 +51,6 @@ class App extends Component {
             timeouts: [],
         });
     };
-    
 
     clearColorKey = () => {
         let blankKey = new Array(this.state.count).fill(0);
@@ -176,7 +174,6 @@ class App extends Component {
         this.componentDidMount();
     }
 
-
     getInitialState = () => {
         return {
             value: 500
@@ -228,10 +225,9 @@ class App extends Component {
                         <p>Size</p>
                         <input type="range" id = "slider-2" min="5" max="20" value= {this.count} onChange={this.handleSize}></input>
                     </div>
-                    <select>
-                        <option value="Bubble Sort" onChange={this.changeAlgorithm}>Bubble Sort</option>
-                        <option value="action-2">Another action</option>
-                        <option value="action-3">Something else</option>
+                    <select value = {this.state.algorithm} onChange = {this.changeAlgorithm}>
+                        <option value="Bubble Sort">Bubble Sort</option>
+                        <option value="Merge Sort">Merge Sort</option>
                     </select>
                     
                 </div>
