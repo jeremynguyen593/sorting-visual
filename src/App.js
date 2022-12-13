@@ -214,7 +214,8 @@ class App extends Component {
         );
 
         let playButton;
-        let stopButton;
+        //let stopButton;
+        let newArrayButton;
 
         if (this.state.arraySteps.length === this.state.currentStep || this.state.currentStep === -1) {
             playButton = (
@@ -228,6 +229,11 @@ class App extends Component {
                     Play
                 </button>
             );
+            newArrayButton = (
+                <button className='controller' onClick={this.generateRandomArray} disabled = {this.state.isDisabled}>
+                    Random
+                </button>
+            )
             /*
             stopButton = (
                 <button className='controller' onClick={this.stop} disabled={!this.state.isDisabled}>
@@ -238,13 +244,16 @@ class App extends Component {
     
         return (
             <div className = 'app'>
+                <div className="title">
+                    Sorting Visualizer
+                </div>
                 <div className = 'frame'>
                     <div className='barsDiv container card'>{bars}</div>
                 </div>
                 <div className = 'control-panel'>
                     <div className='control-buttons'>
+                       {newArrayButton}
                        {playButton}
-                       {stopButton}
                     </div>
                     <div className="slider">
                         <p>Speed</p>
@@ -263,7 +272,6 @@ class App extends Component {
                     </select>
                     
                 </div>
-                <div className='panel'></div>
             </div>
         );
     }
