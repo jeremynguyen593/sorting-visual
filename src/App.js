@@ -8,6 +8,8 @@ import BubbleSort from './algorithms/BubbleSort';
 import MergeSort from './algorithms/MergeSort';
 import InsertionSort from './algorithms/InsertionSort';
 import QuickSort from './algorithms/QuickSort';
+import SelectionSort from './algorithms/SelectionSort';
+
 
 class App extends Component {
     state = { 
@@ -28,6 +30,7 @@ class App extends Component {
         'Merge Sort': MergeSort,
         'Insertion Sort': InsertionSort,
         'Quick Sort': QuickSort,
+        'Selection Sort': SelectionSort,
     };
 
     componentDidMount() {
@@ -256,6 +259,7 @@ class App extends Component {
                         <option value="Merge Sort">Merge Sort</option>
                         <option value="Insertion Sort">Insertion Sort</option>
                         <option value= "Quick Sort">Quick Sort</option>
+                        <option value="Selection Sort">Selction Sort</option>
                     </select>
                     
                 </div>

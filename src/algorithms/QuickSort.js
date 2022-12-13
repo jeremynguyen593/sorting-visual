@@ -10,9 +10,8 @@ const quickSort = (array, position, arraySteps, colorSteps) => {
     return;
   }
 
-  let originalPivotIndex = pickPivot(array);
   // pick median of three numbers as pivot and sent it to back
-  swap(array, originalPivotIndex, array.length - 1);
+  swap(array, pickPivot(array), array.length - 1);
   insertStep(array, position, arraySteps);
   colorSteps.push(colorSteps[colorSteps.length - 1].slice());
 
@@ -22,11 +21,12 @@ const quickSort = (array, position, arraySteps, colorSteps) => {
 
   // swap small value from right with big value from left
   while (A < B) {
-    let colorKey = colorSteps[colorSteps.length - 1].slice();
+    let colorKey;
     while (array[A] < pivot) {
       insertStep(array, position, arraySteps);
       colorKey = colorSteps[colorSteps.length - 1].slice();
       colorKey = colorKey.map(key => key === 2 ? 2 : 0);
+      colorKey[position + (array.length-1)] = 3;
       colorKey[position + A] = 1;
       colorKey[position + B] = 1;
       colorSteps.push(colorKey);
@@ -36,6 +36,7 @@ const quickSort = (array, position, arraySteps, colorSteps) => {
       insertStep(array, position, arraySteps);
       colorKey = colorSteps[colorSteps.length - 1].slice();
       colorKey = colorKey.map(key => key === 2 ? 2 : 0);
+      colorKey[position + (array.length-1)] = 3;
       colorKey[position + A] = 1;
       colorKey[position + B] = 1;
       colorSteps.push(colorKey);
@@ -46,6 +47,7 @@ const quickSort = (array, position, arraySteps, colorSteps) => {
       insertStep(array, position, arraySteps);
       let colorKey = colorSteps[colorSteps.length - 1].slice();
       colorKey = colorKey.map(key => key === 2 ? 2 : 0);
+      colorKey[position + (array.length-1)] = 3;
       colorKey[position + A] = 1;
       colorKey[position + B] = 1;
       colorSteps.push(colorKey);
