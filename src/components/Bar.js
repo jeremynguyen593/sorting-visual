@@ -9,10 +9,10 @@ function Bar({index, length, color, changeArray}) {
     }, [length]);
 
     const colors = [
-        ['rgba(73, 197, 182, 0.5)', 'rgba(73, 197, 182, 0.2)'],
-        ['rgba(255, 48, 79, 1)', 'rgba(255, 48, 79, 0.5)'],
-        ['rgba(131, 232, 90, 0.5)', 'rgba(131, 232, 90, 0.2)'],
-        ['rgba(246, 190, 0, 0.5)', 'rgba(246,190,0, 0.2'],
+        ['rgba(1, 186, 239, 0.5)', 'rgba(1, 186, 239, 0.2)'],
+        ['rgba(196, 40, 40, 1)', 'rgba(196, 40, 40, 0.5)'],
+        ['rgba(94, 221, 36  , 0.5)', 'rgba(94, 221, 36    , 0.2)'],
+        ['rgba(255, 113, 5, 0.5)', 'rgba(255, 113, 5, 0.2'],
     ];
 
     const inputStyle = {
@@ -27,7 +27,7 @@ function Bar({index, length, color, changeArray}) {
     const bottom = {
         transform: `translateY(${200 - length}px) rotateX(-90deg)`,
         backgroundColor: `${colors[color][0]}`,
-        boxShadow: `5px 5px 50px 5px ${colors[color][1]}`,
+        /* boxShadow: `5px 5px 50px 5px ${colors[color][1]}`,  */
         transition: '0.3s',
     };
 
@@ -35,7 +35,7 @@ function Bar({index, length, color, changeArray}) {
         height: `${length}px`,
         transform: `translateY(${200 - length}px)`,
         backgroundColor: `${colors[color][0]}`,
-        boxShadow: `5px 5px 50px 5px ${colors[color][1]}`,
+        /* boxShadow: `5px 5px 50px 5px ${colors[color][1]}`, */
         transition: '0.3s',
     };
 

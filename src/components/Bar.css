@@ -33,7 +33,7 @@
 .bottom {
     height: 34px;
     transform-origin: top;
-    background:rgba(225, 0, 120, 0.5);
+    Background:rgba(225, 0, 120, 0.5);
     box-shadow: rgba(225, 0, 120, 0.2);
     transition: 0.3s;
 }

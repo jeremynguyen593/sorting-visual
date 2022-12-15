@@ -268,7 +268,7 @@ class App extends Component {
                         <option value="Merge Sort">Merge Sort</option>
                         <option value="Insertion Sort">Insertion Sort</option>
                         <option value= "Quick Sort">Quick Sort</option>
-                        <option value="Selection Sort">Selction Sort</option>
+                        <option value="Selection Sort">Selection Sort</option>
                     </select>
                     
                 </div>
