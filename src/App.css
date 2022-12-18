@@ -1,16 +1,16 @@
-
+body {
+  background-color: #292A40;
+}
 .App {
   text-align: center;
 }
 
-/* T R B L*/
-/* TB RL */
 .frame {
-  margin-top: 0;
-  margin-bottom: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  top: 35px;
 }
 
 .container {
@@ -25,22 +25,13 @@
   border-radius: 2em;
   padding: 0 1em;
   background-color: #9c9c9c;
+  position: relative;
+  bottom: 40px;
 }
 
-.controller {
- /*background: #555;
-  margin: 0 1em;
-  border: 1px solid;
-  height: 3em;
-  width: 3em;
-  border-radius: 100%;
-  background: transparent;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  */
+.controller  {
 
+  /*
   display:inline-block;
 	
 	font:normal normal 300 1.3em 'Open Sans';
@@ -63,8 +54,17 @@
 	color: #000000;
 	background-color:#000000;
 	background-position: -100% 100%;
+  */
 
-  
+  /*
+  display: block;
+  width: 50px;
+  height: 50px;
+  background-color: lightgray;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  */
 }
 
 .control-buttons {
@@ -76,19 +76,25 @@
 }
 
 .control-panel {
-  height: 150px;
+  height: 170px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  position: relative;
+  bottom: 50px;
+
 }
 
 .title {
-  font-family: "apercu",sans-serif;
+  height: 140px;
+  color: white;
+  background-color: #192733;
+  font-size: 75px;
+  font-family: sans-serif;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 30px;
+  align-items: center;  
 }
 
 p {

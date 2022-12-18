@@ -143,15 +143,7 @@ class App extends Component {
 
         for (let i = 0; i < steps.length - this.state.currentStep; i++) {
             let timer = this.state.delay * i;
-            //console.log("!");
             let timeout = setTimeout(() => {
-                /*
-                if (this.state.currentStep === -1) {
-                    //i = 1000000;
-                    return;
-                }
-                */
-                //console.log("?");
                 let currentStep = this.state.currentStep;
                 this.setState({
                     array: steps[currentStep],
@@ -184,22 +176,6 @@ class App extends Component {
         })
         this.componentDidMount();
     }
-    /*
-    stop = () => {
-        this.setState({
-            currentStep: -1,
-        })
-    }
-
-    reset = () => {
-        this.generateRandomArray();
-        this.setState({
-            array: [],
-        arraySteps: [],
-        colorKey: [],
-        colorSteps: [],
-        })
-    } */
 
     render() {
         let bars = this.state.array.map((value, index) => (
@@ -214,7 +190,6 @@ class App extends Component {
         );
 
         let playButton;
-        //let stopButton;
         let newArrayButton;
 
         if (this.state.arraySteps.length === this.state.currentStep || this.state.currentStep === -1) {
@@ -228,18 +203,12 @@ class App extends Component {
                 <button className='controller' onClick={this.start} disabled={this.state.isDisabled}>
                     Play
                 </button>
-            );
+            ); 
             newArrayButton = (
                 <button className='controller' onClick={this.generateRandomArray} disabled = {this.state.isDisabled}>
                     Random
                 </button>
             )
-            /*
-            stopButton = (
-                <button className='controller' onClick={this.stop} disabled={!this.state.isDisabled}>
-                    Stop
-                </button>
-            ) */
         }
     
         return (
@@ -252,8 +221,8 @@ class App extends Component {
                 </div>
                 <div className = 'control-panel'>
                     <div className='control-buttons'>
-                       {newArrayButton}
-                       {playButton}
+                    {playButton}
+                    {newArrayButton}
                     </div>
                     <div className="slider">
                         <p>Speed</p>
