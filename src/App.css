@@ -24,37 +24,35 @@ body {
 .card {
   border-radius: 2em;
   padding: 0 1em;
-  background-color: #9c9c9c;
+  background-color: #9197AE;
   position: relative;
   bottom: 40px;
 }
 
 .controller  {
-
-  /*
   display:inline-block;
 	
 	font:normal normal 300 1.3em 'Open Sans';
 	text-decoration:none;	
 
-	color: #B026FF;
-	background-color:transparent;
-	border:1px solid #B026FF;
+	color: #3d898d;
+	background-color: #292A40;
+	border:1px solid #3d898d;
 	border-radius:100px;
 	
 	padding: .3em 1.2em;
 	margin:5px;
 			
 	background-size: 200% 100%;	
-	background-image: linear-gradient(to right, transparent 50%, #B026FF 50%);
+	background-image: linear-gradient(to right, transparent 50%, #3d898d 50%);
 	transition: background-position .3s cubic-bezier(0.19, 1, 0.22, 1) .1s, color .5s ease 0s, background-color .5s ease;
 }
 
  .controller:hover{
-	color: #000000;
-	background-color:#000000;
+	color: black;
+	background-color:black;
 	background-position: -100% 100%;
-  */
+ }
 
   /*
   display: block;
@@ -65,7 +63,7 @@ body {
   outline: none;
   border-radius: 4px;
   */
-}
+
 
 .control-buttons {
   height: 4em;
@@ -88,7 +86,7 @@ body {
 
 .title {
   height: 140px;
-  color: white;
+  color: whitesmoke;
   background-color: #192733;
   font-size: 75px;
   font-family: sans-serif;
@@ -108,23 +106,14 @@ p {
 }
 
 select {
-  /*
-  max-width: 200px;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;*/
-
   display:inline-block;
 	
 	font:normal normal 300 1.15em 'Open Sans';
 	text-decoration:none;	
 	
-	color: #B026FF;
+	color: #3d898d;
 	background-color:transparent;
-	border:1px solid #B026FF;
+	border:1px solid #3d898d;
 	border-radius:100px;
 	
 	padding: .3em 1.2em;

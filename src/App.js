@@ -220,10 +220,13 @@ class App extends Component {
                     <div className='barsDiv container card'>{bars}</div>
                 </div>
                 <div className = 'control-panel'>
-                    <div className='control-buttons'>
-                    {playButton}
-                    {newArrayButton}
-                    </div>
+                    <select value = {this.state.algorithm} onChange = {this.changeAlgorithm} disabled={this.state.isDisabled}>
+                        <option value="Bubble Sort">Bubble Sort</option>
+                        <option value="Merge Sort">Merge Sort</option>
+                        <option value="Insertion Sort">Insertion Sort</option>
+                        <option value= "Quick Sort">Quick Sort</option>
+                        <option value="Selection Sort">Selection Sort</option>
+                    </select>
                     <div className="slider">
                         <p>Speed</p>
                         <input type="range" id = "slider-1" min="50" max="1000" value= {this.delay} onChange={this.handleSpeed}></input>
@@ -232,14 +235,10 @@ class App extends Component {
                         <p>Size</p>
                         <input type="range" id = "slider-2" min="5" max="20" value= {this.count} onChange={this.handleSize}></input>
                     </div>
-                    <select value = {this.state.algorithm} onChange = {this.changeAlgorithm} disabled={this.state.isDisabled}>
-                        <option value="Bubble Sort">Bubble Sort</option>
-                        <option value="Merge Sort">Merge Sort</option>
-                        <option value="Insertion Sort">Insertion Sort</option>
-                        <option value= "Quick Sort">Quick Sort</option>
-                        <option value="Selection Sort">Selection Sort</option>
-                    </select>
-                    
+                    <div className='control-buttons'>
+                    {newArrayButton}
+                    {playButton}
+                    </div>
                 </div>
             </div>
         );
